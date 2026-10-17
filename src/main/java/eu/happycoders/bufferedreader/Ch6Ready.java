@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PipedReader;
 import java.io.PipedWriter;
+import java.io.UncheckedIOException;
 
 public class Ch6Ready {
 
@@ -16,8 +17,10 @@ public class Ch6Ready {
                 try (writer) {
                   Thread.sleep(500);
                   writer.write("Hello\n");
-                } catch (IOException | InterruptedException e) {
-                  throw new IllegalStateException(e);
+                } catch (IOException e) {
+                  throw new UncheckedIOException(e);
+                } catch (InterruptedException _) {
+                  Thread.currentThread().interrupt();
                 }
               });
 

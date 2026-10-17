@@ -31,10 +31,14 @@
          unit-test in them. -->
     <sonar.coverage.exclusions>**/*.java</sonar.coverage.exclusions>
 
-    <sonar.issue.ignore.multicriteria>e1</sonar.issue.ignore.multicriteria>
+    <sonar.issue.ignore.multicriteria>e1,e2</sonar.issue.ignore.multicriteria>
     <!-- The examples print their results; System.out is the program's output, not logging. -->
     <sonar.issue.ignore.multicriteria.e1.ruleKey>java:S106</sonar.issue.ignore.multicriteria.e1.ruleKey>
     <sonar.issue.ignore.multicriteria.e1.resourceKey>**/*.java</sonar.issue.ignore.multicriteria.e1.resourceKey>
+    <!-- Ch10Mistakes calls readLine() in the loop condition and throws the line away on purpose:
+         the lost lines are the mistake the article shows. -->
+    <sonar.issue.ignore.multicriteria.e2.ruleKey>java:S2677</sonar.issue.ignore.multicriteria.e2.ruleKey>
+    <sonar.issue.ignore.multicriteria.e2.resourceKey>**/Ch10Mistakes.java</sonar.issue.ignore.multicriteria.e2.resourceKey>
   </properties>
 
   <dependencies>
