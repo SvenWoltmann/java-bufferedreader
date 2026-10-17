@@ -122,14 +122,14 @@ public class ReadBenchmark {
 
   @Benchmark
   public long bufferedReaderLines() throws IOException {
-    try (BufferedReader reader = Files.newBufferedReader(file)) {
+    try (BufferedReader reader = new BufferedReader(new FileReader(file.toFile(), UTF_8))) {
       return reader.lines().mapToLong(String::length).sum();
     }
   }
 
   @Benchmark
   public long bufferedReaderReadAllLines() throws IOException {
-    try (BufferedReader reader = Files.newBufferedReader(file)) {
+    try (BufferedReader reader = new BufferedReader(new FileReader(file.toFile(), UTF_8))) {
       long sum = 0;
       for (String line : reader.readAllLines()) {
         sum += line.length();
