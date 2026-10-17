@@ -23,16 +23,16 @@ public class ReadCallCounter {
     Path file = TestFile.ensureExists();
     for (int bufferSize : new int[] {256, 1_024, 8_192, 65_536, 1_048_576}) {
       CountingInputStream in = new CountingInputStream(new FileInputStream(file.toFile()));
+      long lines;
       try (BufferedReader reader =
           new BufferedReader(new InputStreamReader(in, UTF_8), bufferSize)) {
-        while (reader.readLine() != null) {
-          // only the reads from the file are of interest
-        }
+        lines = reader.lines().count();
       }
       System.out.printf(
           Locale.ROOT,
-          "buffer %,9d chars: %,d reads from the file, %,.1f bytes per read%n",
+          "buffer %,9d chars: %,d lines, %,d reads from the file, %,.1f bytes per read%n",
           bufferSize,
+          lines,
           in.reads,
           (double) in.bytes / in.reads);
     }
