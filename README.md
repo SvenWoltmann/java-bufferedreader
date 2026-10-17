@@ -35,6 +35,7 @@ The package `eu.happycoders.bufferedreader.benchmark` contains the JMH benchmark
 
 * `ReadBenchmark` – reading a 100,000,000-byte UTF-8 text file with `InputStreamReader`, `FileReader`, and `BufferedReader` (`read()`, `read(char[])`, `readLine()`, `lines()`, `readAllLines()`), and with `Scanner.nextLine()`
 * `BufferSizeBenchmark` – `readLine()` with buffer sizes from 256 to 1,048,576 characters
+* `DecoderWarmupCheck` – not JMH: decodes the test file with an `InputStreamReader` in blocks of one size after warming the JVM up with another, one JVM per call; it shows that the speed depends on the warm-up block size, not on the measured one (the command is in the class comment)
 
 The first run creates the test file `target/benchmark-input.txt` from a fixed seed, so every machine reads the same file. Build and run:
 
@@ -43,7 +44,7 @@ mvn package
 java -jar target/benchmarks.jar
 ```
 
-The complete run takes about 15 minutes. Close other applications while it runs.
+The complete run takes about 15 minutes. Close other applications while it runs. The results of the article's run are in `results/apple-m5-pro/`.
 
 
 <!-- happycoders-resources:start -->
