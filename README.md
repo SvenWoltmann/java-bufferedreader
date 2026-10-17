@@ -18,7 +18,7 @@ Most examples read the small log file `files/server.log`. Every class with a `ma
 * `Intro` – reads the log file line by line
 * `Ch1Creating` – `Files.newBufferedReader()`, `FileReader`, `InputStreamReader` around a `GZIPInputStream`, an own buffer size, and a Latin-1 file read as UTF-8
 * `Ch2ReadLine` – line terminators, empty lines, and the end of the input
-* `Ch3Lines` – `lines()` with `filter()` and `groupingBy()`, and an `UncheckedIOException` while streaming
+* `Ch3Lines` – `lines()` with `filter()` and `groupingBy()`, an `UncheckedIOException` while streaming, and `Files.lines()`
 * `Ch4ReadAll` – `readAllLines()` and `readAllAsString()` (Java 25), also after a `readLine()`
 * `Ch5Characters` – `read()` and `read(char[], int, int)`
 * `Ch6MarkReset` – an optional header line with `mark()` and `reset()`, and `skip()`

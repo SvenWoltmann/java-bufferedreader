@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.stream.Stream;
 
 public class Ch3Lines {
 
@@ -40,6 +41,11 @@ public class Ch3Lines {
       System.out.println(count + " lines");
     } catch (UncheckedIOException e) {
       System.out.println(e + "\n  caused by " + e.getCause());
+    }
+
+    System.out.println("== Files.lines()");
+    try (Stream<String> lines = Files.lines(log)) {
+      lines.filter(line -> line.contains(" GET ")).forEach(System.out::println);
     }
   }
 }
