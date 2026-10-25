@@ -1,5 +1,7 @@
 # Java BufferedReader
 
+> **This repository has moved.** The code now lives in [java-file-io](https://github.com/SvenWoltmann/java-file-io), package `eu.happycoders.bufferedreader`, together with the code of the other articles on files in Java. This repository is archived and no longer updated.
+
 [![Build](https://github.com/SvenWoltmann/java-bufferedreader/actions/workflows/build.yml/badge.svg)](https://github.com/SvenWoltmann/java-bufferedreader/actions/workflows/build.yml)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=SvenWoltmann_java-bufferedreader&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=SvenWoltmann_java-bufferedreader)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=SvenWoltmann_java-bufferedreader&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=SvenWoltmann_java-bufferedreader)
